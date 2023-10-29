@@ -4,6 +4,7 @@
 ## Evaluación 
 
 - ¿Cual es la funcion de los métodos de HTTP *HEAD* *GET* *POST* *PUT* *DELETE*?
+
 * GET: Solicita la recuperación de un recurso específico, generalmente identificado por una URL. El servidor responde enviando el recurso solicitado en el cuerpo de la respuesta. Es un método seguro y no debe tener ningún efecto secundario en el servidor ni en los datos.
    - 
 * HEAD: Similar a GET, pero solicita solo los encabezados de la respuesta, sin el cuerpo del recurso. Se utiliza para obtener información sobre el recurso, como el tipo de contenido o la última fecha de modificación, sin descargar el recurso completo.
