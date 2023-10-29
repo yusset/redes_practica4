@@ -5,15 +5,15 @@
 
 - ¿Cual es la funcion de los métodos de HTTP *HEAD* *GET* *POST* *PUT* *DELETE*?
 
-* GET: Solicita la recuperación de un recurso específico, generalmente identificado por una URL. El servidor responde enviando el recurso solicitado en el cuerpo de la respuesta. Es un método seguro y no debe tener ningún efecto secundario en el servidor ni en los datos.
-   - 
-* HEAD: Similar a GET, pero solicita solo los encabezados de la respuesta, sin el cuerpo del recurso. Se utiliza para obtener información sobre el recurso, como el tipo de contenido o la última fecha de modificación, sin descargar el recurso completo.
+ GET: Solicita la recuperación de un recurso específico, generalmente identificado por una URL. El servidor responde enviando el recurso solicitado en el cuerpo de la respuesta. Es un método seguro y no debe tener ningún efecto secundario en el servidor ni en los datos.
+   
+HEAD: Similar a GET, pero solicita solo los encabezados de la respuesta, sin el cuerpo del recurso. Se utiliza para obtener información sobre el recurso, como el tipo de contenido o la última fecha de modificación, sin descargar el recurso completo.
   
-* POST: Envia datos al servidor para que los procese. A menudo se utiliza para enviar datos del usuario al servidor, como formularios web. Puede tener efectos secundarios en el servidor, como la creación de un nuevo recurso, la actualización de datos o el procesamiento de una acción específica.
+POST: Envia datos al servidor para que los procese. A menudo se utiliza para enviar datos del usuario al servidor, como formularios web. Puede tener efectos secundarios en el servidor, como la creación de un nuevo recurso, la actualización de datos o el procesamiento de una acción específica.
   
-  * PUT: Actualiza un recurso existente o crea uno nuevo si no existe en la ubicación especificada. El cuerpo de la solicitud contiene la representación completa del recurso actualizado o nuevo.
+PUT: Actualiza un recurso existente o crea uno nuevo si no existe en la ubicación especificada. El cuerpo de la solicitud contiene la representación completa del recurso actualizado o nuevo.
     
-* DELETE: Solicita la eliminación de un recurso en la ubicación especificada. El servidor debe eliminar el recurso si es posible.
+DELETE: Solicita la eliminación de un recurso en la ubicación especificada. El servidor debe eliminar el recurso si es posible.
 
 
 - Investigue y enliste junto con sus significado las categorias de los codigos de estado que utiliza HTTP.
