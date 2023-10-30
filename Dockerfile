@@ -1,14 +1,16 @@
-# Usa la imagen base de Python 3
-FROM python:3
+# Utiliza una imagen base de Windows Server Core
+FROM mcr.microsoft.com/windows/servercore:ltsc2019
 
-# Establece el directorio de trabajo en /app
-WORKDIR /app
+# Establece el directorio de trabajo
+WORKDIR C:\app
 
-# Copia el código fuente al contenedor
-COPY . /app
+# Copia el código fuente de la aplicación al contenedor
+COPY clienteHTTP.py .
 
-# Instala las dependencias (en este caso, solo necesitamos el módulo 'socket')
-RUN pip install socket
+# Instala Python
+ADD https://www.python.org/ftp/python/3.9.0/python-3.9.0-amd64-webinstall.msi C:\python_installer.msi
+RUN powershell -Command Start-Process -Wait -FilePath msiexec -ArgumentList '/i', 'C:\python_installer.msi', '/qn'
+RUN del C:\python_installer.msi
 
-# Comando de inicio para ejecutar el script Python
-CMD ["python", "http_client.py"]
+# Comando de inicio para ejecutar la aplicación
+CMD ["python", "clienteHTTP.py"]
