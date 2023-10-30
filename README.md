@@ -3,7 +3,8 @@
 
 1. Simplemente se debe descargar este repositorio. 
 
-1. Asegurarse de instalar Dockerfile, yo utilicé Windows ya que accidentalmente se borró mi sispetema operativo Linux, [aquí] (https://docs.docker.com/desktop/install/windows-install/) las instrucciones para hacerlo.
+1. Asegurarse de instalar Dockerfile, yo utilicé Windows ya que accidentalmente se borró mi sispetema operativo Linux, [aquí](https://docs.docker.com/desktop/install/windows-install/). las instrucciones para hacerlo.
+   
 1. Después en la Powershell se correrá:
    
  `docker build -t nombre_de_la_imagen .`
@@ -16,7 +17,10 @@ Recordemos que los argumentos son:
 `host http_method url user_agent encoding connection `
 
 Ejemplo:
-` `
+
+Si definimos el nombre de la imagen como: redesp4
+
+`docker run -it --rm redesp4 www.fciencias.unam.mx GET / 1 identity close `
 ## Evaluación 
 
 - ¿Cual es la funcion de los métodos de HTTP *HEAD* *GET* *POST* *PUT* *DELETE*?
