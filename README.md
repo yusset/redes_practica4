@@ -3,13 +3,13 @@
 
 1. Simplemente se debe descargar este repositorio. 
 
-1. Asegurarse de instalar Dockerfile, yo utilicé Windows ya que accidentalmente se borró mi sispetema operativo Linux, [aquí](https://docs.docker.com/desktop/install/windows-install/). las instrucciones para hacerlo.
+1. Asegurarse de instalar Dockerfile, yo utilicé Windows ya que accidentalmente se borró mi sispetema operativo Linux, [aquí](https://docs.docker.com/desktop/install/windows-install/) las instrucciones para hacerlo.
    
 1. Después en la Powershell se correrá:
    
  `docker build -t nombre_de_la_imagen .`
  
-1. Y para ejecutar el programa:
+4. Y para ejecutar el programa:
    
  `docker run -it --rm nombre_de_la_imagen argumentos `
  
