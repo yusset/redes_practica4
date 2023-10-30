@@ -1,66 +1,40 @@
-# Módulos de Python
+
 import socket
-import sys
+import argparse
 
-def processArguments():
-    # Recibe de la línea de comandos un argumento
-    host_server = sys.argv[1]
-
-    arguments = [host_server]
-
-    return arguments
-
-def constructHTTPRequest(host_server):
-    # Construcción de la línea de solicitud HTTP
-    http_method = "GET"
-    url = "/"
-    version = "HTTP/1.1"
-    request_line = http_method + " " + url + " " + version + "\r\n"
-
-    # Construcción de las cabeceras HTTP
-    # Cada parámetro debe terminar con un retorno de carro
-    # y un salto de línea
-    host = "Host: " + host_server
-    user_agent = "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 Edge/16.16299 Firefox/74.0"
-    accept_encoding = "Accept-Encoding: identity"
-    accept_language = "Accept-Language: en-US"
-
-    header_lines = host + "\r\n" + \
-        user_agent + "\r\n" + \
-        accept_encoding + "\r\n" + \
-        accept_language + "\r\n"
-
-    # Que termine con un retorno de carro y salto de línea
-    blank_line = "\r\n"
-
-    # Concatenación de cada parámetro
-    HTTP_request = request_line + \
-        header_lines + \
-        blank_line
+def constructHTTPRequest(host, http_method, url, user_agent, encoding, connection):
+    # Construcción de la solicitud HTTP
+    request_line = f"{http_method} {url} HTTP/1.1\r\n"
+    header_lines = f"Host: {host}\r\nUser-Agent: {user_agent}\r\nAccept-Encoding: {encoding}\r\nConnection: {connection}\r\n\r\n"
+    HTTP_request = request_line + header_lines
     return HTTP_request
 
-def TCPconnection(host_server, HTTP_request):
-    # Crea un socket TCP
+def TCPconnection(host, HTTP_request):
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
-    # Conexión del cliente al servidor dado con el puerto 80 para HTTP
-    s.connect((host_server, 80))
-
-    # Envía la petición HTTP al servidor
+    s.connect((host, 80))
     s.send(HTTP_request.encode())
 
-    # Mientras reciba la información del servidor la guardará
-    # en HTTP_response e imprimirá en pantalla
     while True:
         HTTP_response = s.recv(1024)
         if not HTTP_response:
             break
         print(HTTP_response.decode())
-    # Una vez que ha terminado la recepción de información, se cierra la conexión
+    
     s.close()
-
     print("\n\nConexión con el servidor finalizada\n")
 
-arguments = processArguments()
-HTTP_request = constructHTTPRequest(*arguments)
-TCPconnection(arguments[0], HTTP_request)
+def main():
+    parser = argparse.ArgumentParser(description="Cliente HTTP simple")
+    parser.add_argument("host", help="Host del servidor")
+    parser.add_argument("http_method", help="Método HTTP (por ejemplo, GET)")
+    parser.add_argument("url", help="URL del recurso")
+    parser.add_argument("user_agent", help="User-Agent")
+    parser.add_argument("encoding", help="Accept-Encoding")
+    parser.add_argument("connection", help="Connection")
+    args = parser.parse_args()
+
+    HTTP_request = constructHTTPRequest(args.host, args.http_method, args.url, args.user_agent, args.encoding, args.connection)
+    TCPconnection(args.host, HTTP_request)
+
+if __name__ == "__main__":
+    main()
