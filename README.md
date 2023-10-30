@@ -1,6 +1,7 @@
 # Práctica 4: Programación de un cliente de HTTP y uso de contenedores.
 ## Funcionamiento 
-1.Simplemente se debe descargar este repositorio. 
+
+1. Simplemente se debe descargar este repositorio. 
 
 1. Asegurarse de instalar Dockerfile, yo utilicé Windows ya que accidentalmente se borró mi sispetema operativo Linux, [aquí] (https://docs.docker.com/desktop/install/windows-install/) las instrucciones para hacerlo.
 1. Después en la Powershell se correrá:
