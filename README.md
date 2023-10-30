@@ -8,6 +8,7 @@
 1. Después en la Powershell se correrá:
    
  `docker build -t nombre_de_la_imagen .`
+ 
 1. Y para ejecutar el programa:
    
  `docker run -it --rm nombre_de_la_imagen argumentos `
