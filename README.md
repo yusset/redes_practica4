@@ -1,6 +1,13 @@
 # Práctica 4: Programación de un cliente de HTTP y uso de contenedores.
-
-**Erika Madera Baldovinos**
+## Funcionamiento 
+1.Simplemente se debe descargar este repositorio. y 
+1. Asegurarse de instalar Dockerfile, yo utilicé Windows ya que accidentalmente se borró mi sispetema operativo Linux, las instrucciones para hacerlo son:
+1. Después en la Powershell se correrá:
+ `docker build -t nombre_de_la_imagen .`
+1. Y para ejecutar el programa:
+ `docker run -it --rm nombre_de_la_imagen argumentos `
+Recordemos que los argumentos son:  `host http_method url user_agent encoding connection `
+Ejemplo:  ` `
 ## Evaluación 
 
 - ¿Cual es la funcion de los métodos de HTTP *HEAD* *GET* *POST* *PUT* *DELETE*?
